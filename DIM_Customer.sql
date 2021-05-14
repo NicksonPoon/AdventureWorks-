@@ -30,7 +30,11 @@ SELECT
   --      ,[Phone]
   c.[DateFirstPurchase], 
   --      [CommuteDistance]
-  g.city AS [Customer City] -- Joined in Customer city from Geography Table
+  g.city AS [Customer City], -- Joined in Customer city from Geography Table
+  g.StateProvinceCode AS State,
+  CONCAT(g.city, ', ', g.StateProvinceCode) AS 'Customer Location',
+  g.CountryRegionCode AS "Customer Country"
+
 FROM 
   [AdventureWorksDW2019].[dbo].[DimCustomer] AS c 
   LEFT JOIN dbo.dimgeography AS g ON g.geographykey = c.geographykey 
