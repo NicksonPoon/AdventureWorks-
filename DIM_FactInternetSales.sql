@@ -8,7 +8,7 @@ SELECT
   --      ,[PromotionKey] 
   [CurrencyKey], 
   --      ,[SalesTerritoryKey]
-  [SalesOrderNumber] 
+  [SalesOrderNumber] ,
   --      ,[SalesOrderLineNumber]
   --      ,[RevisionNumber]
   --     ,[OrderQuantity]
