@@ -16,9 +16,10 @@ SELECT
   --      ,[ExtendedAmount]
   --      ,[UnitPriceDiscountPct]
   --      ,[DiscountAmount]
-  --      ,[ProductStandardCost]
-  --      ,[TotalProductCost]
-  [SalesAmount] 
+  --  [TotalProductCost]
+  [SalesAmount],
+   [SalesAmount] - [ProductStandardCost] AS 'Profit',
+   [SalesAmount] / [ProductStandardCost] * 100 AS 'Profit Percentage'
   --      ,[TaxAmt]
   --      ,[Freight]
   --      ,[CarrierTrackingNumber]
@@ -28,9 +29,6 @@ SELECT
   --     ,[ShipDate]
 FROM 
   [AdventureWorksDW2019].[dbo].[FactInternetSales] 
-WHERE 
-  LEFT(OrderDateKey, 4) >= YEAR(
-    GETDATE() -2
-  ) --Ensures we always get data within the last two years
+
 ORDER BY 
   OrderDateKey ASC
