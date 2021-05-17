@@ -29,6 +29,8 @@ SELECT
   --     ,[ShipDate]
 FROM 
   [AdventureWorksDW2019].[dbo].[FactInternetSales] 
+WHERE
+ShipDateKey <= 20201231
 
 ORDER BY 
   OrderDateKey ASC
